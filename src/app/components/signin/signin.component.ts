@@ -57,4 +57,14 @@ export class SigninComponent implements OnInit {
     })
   }
 
+  submitForm(): void {
+    if (this.form.valid) {
+      this.login()
+      console.log(this.form.value);
+    } else {
+      // Form geçerli değilse, hata mesajı gösterebilirsiniz.
+      console.log('Form is not valid!');
+    }
+  }
+
 }

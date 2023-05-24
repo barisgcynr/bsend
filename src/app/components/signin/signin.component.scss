@@ -1,0 +1,51 @@
+.login-container {
+    background-color: #0e2537;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 100px;
+  }
+  
+  .login-container h2 {
+    margin-top: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #BDD99e; /* Label rengini değiştirmek için */
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f3f5; /* Input arka plan rengini değiştirmek için */
+    color: #333; /* Input metin rengini değiştirmek için */
+  }
+  
+  button[type="submit"] {
+    background-color: #BDD99e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #167d32;
+  }
+  
