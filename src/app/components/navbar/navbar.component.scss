@@ -7,9 +7,6 @@
   border-radius: 10px;
 }
 
-/* Font yüklemesi */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
-
 /* Navbar arkaplan rengi */
 .navbar {
   background-color: #BDD99e;
@@ -36,7 +33,7 @@
 .nav-links li a {
   color: #fff;
   text-decoration: none;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   transition: color 0.3s ease;
 }
