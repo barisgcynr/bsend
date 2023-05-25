@@ -6,10 +6,7 @@ import { AuthenticationService } from 'src/authentication.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isUserSignedIn: boolean;
   constructor(private authService: AuthenticationService) {
-    this.isUserSignedIn = authService.isUserSignedIn();
-    console.log(this.isUserSignedIn);
     
    }
 

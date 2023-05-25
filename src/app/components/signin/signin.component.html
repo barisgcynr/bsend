@@ -1,15 +1,35 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h3>Sign In</h3>
       <div class="form-group">
-        <label for="email">Username</label>
-        <input type="text" formControlName="email" id="email" required>
+        <h3>Email</h3>
+        <input type="text" class="formControl" placeholder="Username" #userName required>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" id="password" required>
+        <h3>Password</h3>
+        <input type="password" class="formControl" placeholder="Password" #userPassword required>
       </div>
-      <button type="submit">Login</button>
-    </form>
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="form-group">
+        <button type="submit" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">Log In</button>
+      </div>
+      <div class="form-group">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="form-group">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          <i></i>
+          Log in with Google
+        </button>
+      </div>
+      <div>
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
+    </div>
+    <div>
+      <span>Don't have an account?<span routerLink="/register-user"> Sign Up</span></span>
+    </div>
   </div>
-  
+</div>
