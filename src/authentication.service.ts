@@ -29,6 +29,10 @@ export class AuthenticationService {
     );
   }
 
+  isUserSignedIn(): boolean {
+    return !!this.auth.currentUser;
+  }
+
   private translateFirebaseErrorMessage({code, message}: FirebaseError) {
     if (code === "auth/user-not-found") {
       return "User not found.";

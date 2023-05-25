@@ -3,6 +3,7 @@
       <a routerLink="/"><img src="../../../assets/bsend_logo.png" alt="Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a routerLink="/signin" class="signup">Sign Up</a></li>
+      <li *ngIf="isUserSignedIn"><a routerLink="/signin" class="signup">Sign Up</a></li>
+      <li *ngIf="!isUserSignedIn"><a routerLink="/signin" class="signup">User Signed</a></li>
     </ul>
 </nav>
