@@ -21,13 +21,15 @@ export class AuthenticationService {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
+      console.log(user);
       if (user) {
+      
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
-        localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
+      localStorage.setItem('user', 'null');
+      this.router.navigate(['signin']);
       }
     });
   }
@@ -88,7 +90,7 @@ export class AuthenticationService {
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['/']);
     });
   }
   // Auth logic to run auth providers
@@ -96,7 +98,7 @@ export class AuthenticationService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['/']);
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -125,7 +127,7 @@ export class AuthenticationService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['signin']);
     });
   }
 }

@@ -6,11 +6,13 @@ import { AuthenticationService } from 'src/authentication.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private authService: AuthenticationService) {
+  constructor(public authService: AuthenticationService) {
     
    }
 
   ngOnInit(): void {
   }
-
+  signOut(): void {
+    this.authService.SignOut();
+  }
 }
