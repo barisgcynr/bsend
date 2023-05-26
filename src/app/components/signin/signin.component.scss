@@ -1,15 +1,18 @@
 .login-container {
-    background-color: #365064;
-    padding: 20px;
-    width: 300px;
-    margin: 0 auto;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    font-family: 'Quicksand', sans-serif;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 100px;
-  }
+  background-color: #365064;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  transform: translate(0, -50%);
+  top: 50%;
+  position: absolute;
+}
   
   .login-container h2 {
     margin-top: 0;
@@ -49,4 +52,11 @@
   button[type="submit"]:hover {
     background-color: #167d32;
   }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
   
