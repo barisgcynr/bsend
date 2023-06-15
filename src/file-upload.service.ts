@@ -5,17 +5,24 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { FileUpload } from './file-upload';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileUploadService {
-  private basePath = '/uploads';
-
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  private basePath = '/anonim';
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private auth: AuthenticationService) { 
+    if(auth.isLoggedIn){
+      const user = JSON.parse(localStorage.getItem('user')!);
+      this.basePath = '/'+user.uid;
+    }
+  }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    console.log(this.basePath);
+    
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
