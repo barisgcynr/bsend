@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: "bsend-7aba9.appspot.com",
     messagingSenderId: "748327427986",
     appId: "1:748327427986:web:d43a208f3750f3da4bab4b",
-    measurementId: "G-QGMNYR87ND"
+    measurementId: "G-QGMNYR87ND",
+    databaseURL: 'https://bsend-7aba9-default-rtdb.europe-west1.firebasedatabase.app'
   },
 };
 
