@@ -8,13 +8,19 @@ import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UploadFormComponent } from './components/upload-form/upload-form.component';
+import { UploadListComponent } from './components/upload-list/upload-list.component';
+import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainPageComponent,
-    SignupComponent
+    SignupComponent,
+    UploadFormComponent,
+    UploadListComponent,
+    UploadDetailsComponent
   ],
   imports: [
     BrowserModule,

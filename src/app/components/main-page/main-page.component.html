@@ -1,20 +1,7 @@
 <div class="container">
     <div class="content">
-        <h1 class="title">Dosya Transfer Uygulaması</h1>
-        <p class="description">Hızlı ve güvenli dosya transferi için buradayız.</p>
-        <div class="wrapper">
-            <input class="custom-file-input" type="file" id="fileInput" (change)="selectFile($event)">
-            <label class="file-input-label" for="fileInput">
-                <span class="svg_position">
-                    <!-- İstediğiniz dosya ikonunu ekleyebilirsiniz -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#fff" d="M12 2L2 12h3v8h14v-8h3L12 2zm0 15l-4-4h3v-4h2v4h3l-4 4z" />
-                    </svg>
-                </span>
-            </label>
-        </div>
-        <div class="file-name" *ngIf="selectedFiles">{{ selectedFiles[0].name }}</div>
-        <button class="button" *ngIf="selectedFiles" (click)="upload()">Dosya Gönder</button>
+        <app-upload-form></app-upload-form>
+        <app-upload-list></app-upload-list>
     </div>
     
     

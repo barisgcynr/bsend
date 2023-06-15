@@ -4,3 +4,10 @@ body {
   }
 /* Font yüklemesi */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import "~bootstrap/dist/css/bootstrap.css";
+
+:root {
+  --primary-color: #167d32;  
+  --secondary-color: #BDD99e;       /* Set your desired primary color */
+  --danger-color: #dc3545;         /* Set your desired danger color */
+}
