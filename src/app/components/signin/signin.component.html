@@ -2,9 +2,9 @@
   <div class="login-container">
     <div class="displayTableCell">
       <div class="authBlock">
-        <h3>Sign In</h3>
+        <h1>Sign In</h1>
         <div class="form-group">
-          <h3>Email</h3>
+          <h1>Email</h1>
           <input
             type="text"
             class="formControl"
@@ -14,7 +14,7 @@
           />
         </div>
         <div class="form-group">
-          <h3>Password</h3>
+          <h1>Password</h1>
           <input
             type="password"
             class="formControl"
@@ -33,9 +33,6 @@
             Log In
           </button>
         </div>
-        <div class="form-group">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
         <!-- Calling GoogleAuth Api from AuthService -->
         <div class="form-group">
           <button
@@ -48,15 +45,16 @@
           </button>
         </div>
         <div>
-          <span routerLink="/forgot-password">Forgot Password?</span>
+          <span class="forgot-password" routerLink="/forgot-password">Forgot Password?</span>
         </div>
+        <span
+          >Don't have an account?</span>
+          <span class="sign-up" routerLink="/signup">
+            Sign Up</span
+          >
       </div>
       <div>
-        <span
-          >Don't have an account?<span routerLink="/signup">
-            Sign Up</span
-          ></span
-        >
+        
       </div>
     </div>
   </div>
