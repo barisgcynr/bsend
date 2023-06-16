@@ -57,3 +57,82 @@
 .nav-links li a:hover {
   color: #135b26;
 }
+
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-dropdown{
+  color: #BDD99e;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.custom-dropdown button svg {
+  fill: #200E32;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  
+}
+
+.custom-dropdown .dropdown-menu {
+  position: absolute;
+  min-width: 175px;
+  z-index: 1;
+  background-color: #BDD99e;
+  padding: 8px 0;
+  margin-top: 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.custom-dropdown .dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  color: #200E32;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #001220;
+  color: #fff;
+}
+
+.custom-dropdown .dropdown-menu.left {
+  right: 0;
+  left: auto;
+}
+@mixin divider($color: #000, $height: 1px) {
+  height: $height;
+  background-color: $color;
+  opacity: 0.5;
+  margin-left: 1.1rem;
+  margin-right: 1.1rem;
+}
+
+.dropdown-divider {
+  @include divider($color: #000, $height: 1px);
+}
+
+.dropdown-text{
+  cursor: default;
+  color: #000000;
+  opacity: 0.5;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: small;
+  font-family: 'Quicksand', sans-serif;
+}

@@ -11,6 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UploadFormComponent } from './components/upload-form/upload-form.component';
 import { UploadListComponent } from './components/upload-list/upload-list.component';
 import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UploadDetailsComponent } from './components/upload-details/upload-detai
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
