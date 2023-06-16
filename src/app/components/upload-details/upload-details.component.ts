@@ -18,4 +18,7 @@ export class UploadDetailsComponent implements OnInit {
   deleteFileUpload(fileUpload: FileUpload): void {
     this.uploadService.deleteFile(fileUpload);
   }
+  copyClickBoard(text: string) {
+    navigator.clipboard.writeText(text)
+  }
 }
