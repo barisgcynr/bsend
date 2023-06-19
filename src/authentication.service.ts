@@ -28,7 +28,7 @@ export class AuthenticationService {
         JSON.parse(localStorage.getItem('user')!);
       } else {
       localStorage.setItem('user', 'null');
-      this.router.navigate(['signin']);
+      this.router.navigate(['']);
       }
     });
   }
