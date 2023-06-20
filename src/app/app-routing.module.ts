@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: () => import('./components/signup/signup.module')
       .then(m => m.SignupModule)
   },
+  {
+    path: 'user-files',
+    loadChildren: () => import('./components/user-files/user-files.module')
+      .then(m => m.UserFilesModule)
+  },
   
 ];
 

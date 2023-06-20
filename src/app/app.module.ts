@@ -13,6 +13,7 @@ import { UploadListComponent } from './components/upload-list/upload-list.compon
 import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { UserFilesComponent } from './components/user-files/user-files.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     UploadFormComponent,
     UploadListComponent,
     UploadDetailsComponent,
-    EllipsisPipe
+    EllipsisPipe,
+    UserFilesComponent
   ],
   imports: [
     BrowserModule,

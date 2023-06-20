@@ -15,7 +15,7 @@ export class FileUploadService {
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private auth: AuthenticationService) { 
     if(auth.isLoggedIn){
       const user = JSON.parse(localStorage.getItem('user')!);
-      this.basePath = '/'+user.uid;
+      this.basePath = '/'+ user.uid;
     }
   }
 
