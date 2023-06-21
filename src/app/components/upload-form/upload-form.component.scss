@@ -1,0 +1,41 @@
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 2.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  .custom-file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1; /* Yüksek bir z-index değeri ekledik */
+  }
+
+  .custom-file-label {
+    display: inline-block; /* Display değerini değiştirdik */
+    width: 125px;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #c2c2c2;
+    background-color: #167d32;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 50px; /* Yükseklik ile uyumlu bir line-height değeri ekledik */
+  }
+  .file-name {
+    display: flex;
+    margin-top: 0.5rem;
+    font-size: 0.975rem;
+    color: #6c757d;
+  }

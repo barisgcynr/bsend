@@ -44,4 +44,8 @@ export class UploadDetailsComponent implements OnInit {
   openModal(content: any) {
     this.modalService.open(content);
   }
+
+  closeModal() {
+    this.modalService.dismissAll();
+  }
 }

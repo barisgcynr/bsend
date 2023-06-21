@@ -1,15 +1,13 @@
 <div class="row">
-  <div class="col-8">
-    <label>
-      <input
-        type="file"
-        class="text-nowrap text-truncate"
-        (change)="selectFile($event)"
-      />
+  <div class="col-12">
+    <label class="custom-file">
+      <input type="file" class="custom-file-input" (change)="selectFile($event)" />
+      <span class="custom-file-label text-nowrap text-truncate">Choose File</span>
+      <span class="file-name"></span>
     </label>
   </div>
 
-  <div class="col-4 justify-content-end d-flex pb-3">
+  <div class="col-12 justify-content-end d-flex pb-3">
     <button
       class="btn btn-success btn-sm"
       [disabled]="!selectedFiles"
