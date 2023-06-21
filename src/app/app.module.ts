@@ -14,7 +14,8 @@ import { UploadDetailsComponent } from './components/upload-details/upload-detai
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { UserFilesComponent } from './components/user-files/user-files.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,8 @@ import { UserFilesComponent } from './components/user-files/user-files.component
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

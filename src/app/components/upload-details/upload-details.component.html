@@ -1,11 +1,62 @@
-<a href="{{ fileUpload.url }}">{{ fileUpload.name | ellipsis: 20 }}</a>
-<i
-class="copySVG"
-(click)="copyClickBoard(fileUpload.url)"
->
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-</i>
-<button (click)="deleteFileUpload(fileUpload)"
-  class="btn btn-danger btn-sm" style="float: right">
-  Delete
-</button>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ fileUpload.name | ellipsis : 20 }}</h5>
+    <a target="_blank" href="{{ fileUpload.url }}" class="card-link">Download</a>
+    <div>
+      <button class="btn btn-primary btn-sm" (click)="openModal(content)">Send via Mail</button>
+
+    </div>
+    <div>
+      <button class="btn btn-danger btn-sm" (click)="deleteFileUpload(fileUpload)">Delete</button>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal Başlık</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="sendEmail()">
+      <input
+        type="email"
+        [(ngModel)]="to"
+        name="to"
+        placeholder="To"
+        required
+      />
+      <input
+        type="text"
+        [(ngModel)]="subject"
+        name="subject"
+        placeholder="Subject"
+        required
+      />
+      <button
+      type="submit"
+      class="btn btn-success btn-sm"
+      (click)="modal.close('Close click')"
+    >
+      Send Mail
+    </button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Kapat
+    </button>
+  </div>
+</ng-template>
