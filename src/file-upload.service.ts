@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import { Observable } from 'rxjs';
@@ -8,33 +11,40 @@ import { FileUpload } from './file-upload';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FileUploadService {
   private basePath = '/anonim';
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private auth: AuthenticationService) { 
-    if(auth.isLoggedIn){
+  constructor(
+    private db: AngularFireDatabase,
+    private storage: AngularFireStorage,
+    private auth: AuthenticationService
+  ) {
+    if (this.auth.isLoggedIn) {
       const user = JSON.parse(localStorage.getItem('user')!);
-      this.basePath = '/'+ user.uid;
+      this.basePath = '/' + user.uid;
     }
   }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
     console.log(this.basePath);
-    
+
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
-    uploadTask.snapshotChanges().pipe(
-      finalize(() => {
-        storageRef.getDownloadURL().subscribe(downloadURL => {
-          fileUpload.url = downloadURL;
-          fileUpload.name = fileUpload.file.name;
-          this.saveFileData(fileUpload);
-        });
-      })
-    ).subscribe();
+    uploadTask
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          storageRef.getDownloadURL().subscribe((downloadURL) => {
+            fileUpload.url = downloadURL;
+            fileUpload.name = fileUpload.file.name;
+            this.saveFileData(fileUpload);
+          });
+        })
+      )
+      .subscribe();
 
     return uploadTask.percentageChanges();
   }
@@ -44,8 +54,7 @@ export class FileUploadService {
   }
 
   getFiles(numberItems: number): AngularFireList<FileUpload> {
-    return this.db.list(this.basePath, ref =>
-      ref.limitToLast(numberItems));
+    return this.db.list(this.basePath, (ref) => ref.limitToLast(numberItems));
   }
 
   deleteFile(fileUpload: FileUpload): void {
@@ -53,7 +62,7 @@ export class FileUploadService {
       .then(() => {
         this.deleteFileStorage(fileUpload.name);
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   }
 
   private deleteFileDatabase(key: string): Promise<void> {
