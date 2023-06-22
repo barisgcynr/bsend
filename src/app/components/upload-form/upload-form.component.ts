@@ -12,26 +12,13 @@ export class UploadFormComponent implements OnInit {
   currentFileUpload?: FileUpload;
   percentage = 0;
 
-  constructor(private uploadService: FileUploadService) {
-   }
+  constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
   }
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
-
-    const fileInput = event.target;
-    const fileNameContainer = fileInput.parentNode.querySelector('.file-name');
-
-    if (fileNameContainer) {
-      const file = fileInput.files[0];
-      if (file) {
-        fileNameContainer.textContent = file.name;
-      } else {
-        fileNameContainer.textContent = '';
-      }
-    }
   }
 
   upload(): void {
@@ -52,5 +39,4 @@ export class UploadFormComponent implements OnInit {
       }
     }
   }
-  
 }

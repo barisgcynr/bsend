@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="!this.authService.isLoggedIn" class="container">
   <div class="content">
     <div class="d-flex justify-content-center">
        <p class="topText">You’ve got the ideas, we’ve got the plans</p> 
@@ -39,8 +39,16 @@
       
           </div>
     </div>
-    
-    
   </div>
 </div>
 
+<div *ngIf="this.authService.isLoggedIn" class="container">
+  <div class="content">
+    <div class="d-flex justify-content-center">
+       <p class="topText">Let's transfer files, don't we?</p> 
+    </div>
+    <div class="d-flex">
+      <app-upload-form></app-upload-form>
+    </div>
+  </div>
+</div>

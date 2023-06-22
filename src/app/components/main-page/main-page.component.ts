@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/authentication.service';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -8,7 +9,7 @@ export class MainPageComponent implements OnInit {
   selectedFiles?: FileList;
   percentage = 0;
 
-  constructor() { }
+  constructor(public authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }

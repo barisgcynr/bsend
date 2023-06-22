@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-12">
-    <label class="custom-file">
-      <input type="file" class="custom-file-input" (change)="selectFile($event)" />
-      <span class="custom-file-label text-nowrap text-truncate">Choose File</span>
-      <span class="file-name"></span>
+    <label for="images" class="drop-container">
+      <span class="drop-title">Drop files here</span>
+      or
+      <input (change)="selectFile($event)" type="file" id="uploadingFiles" required>
     </label>
   </div>
 
   <div class="col-12 justify-content-end d-flex pb-3">
     <button
-      class="btn btn-success btn-sm"
+      class="btn btn-success btn-sm mt-3"
       [disabled]="!selectedFiles"
       (click)="upload()"
     >
