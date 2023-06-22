@@ -16,6 +16,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { UserFilesComponent } from './components/user-files/user-files.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

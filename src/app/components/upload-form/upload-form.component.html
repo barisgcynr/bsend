@@ -1,22 +1,22 @@
-<div class="row">
   <div class="col-12">
-    <label for="images" class="drop-container">
-      <span class="drop-title">Drop files here</span>
-      or
-      <input (change)="selectFile($event)" type="file" id="uploadingFiles" required>
-    </label>
+
+    <ngx-dropzone class="drop-container" (change)="onSelect($event)">
+      <ngx-dropzone-label>Drag & drop or Click it!</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+    </ngx-dropzone>
   </div>
 
-  <div class="col-12 justify-content-end d-flex pb-3">
+  <div class="col-12 justify-content-center d-flex pb-3">
     <button
-      class="btn btn-success btn-sm mt-3"
-      [disabled]="!selectedFiles"
+      class="btn btn-success btn-md mt-3"
+      [disabled]="!files"
       (click)="upload()"
     >
       Upload
     </button>
   </div>
-</div>
 
 <div *ngIf="currentFileUpload" class="progress mt-2">
   <div

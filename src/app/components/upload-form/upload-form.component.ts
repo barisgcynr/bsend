@@ -5,38 +5,41 @@ import { FileUpload } from '../../../file-upload';
 @Component({
   selector: 'app-upload-form',
   templateUrl: './upload-form.component.html',
-  styleUrls: ['./upload-form.component.scss']
+  styleUrls: ['./upload-form.component.scss'],
 })
 export class UploadFormComponent implements OnInit {
-  selectedFiles?: FileList;
+  files: File[] = [];
   currentFileUpload?: FileUpload;
   percentage = 0;
 
-  constructor(private uploadService: FileUploadService) { }
+  constructor(private uploadService: FileUploadService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSelect(event: any) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
   }
 
-  selectFile(event: any): void {
-    this.selectedFiles = event.target.files;
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
 
   upload(): void {
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      this.selectedFiles = undefined;
-
-      if (file) {
+    if (this.files.length > 0) {
+      this.files.forEach((file: File) => {
         this.currentFileUpload = new FileUpload(file);
         this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-          percentage => {
+          (percentage) => {
             this.percentage = Math.round(percentage ? percentage : 0);
           },
-          error => {
+          (error) => {
             console.log(error);
           }
         );
-      }
+      });
+      this.files = [];
     }
   }
 }

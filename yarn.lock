@@ -4976,6 +4976,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ngx-dropzone@^3.1.0":
+  "integrity" "sha512-5RBaEl07QUcY6sv/BBPyIxN6nbWY/KqTGheEKgbuGS0N1QPFY7NJUo8+X3fYUwQgLS+wjJeqPiR37dd0YNDtWA=="
+  "resolved" "https://registry.npmjs.org/ngx-dropzone/-/ngx-dropzone-3.1.0.tgz"
+  "version" "3.1.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "node-fetch@^2.6.1", "node-fetch@2.6.7":
   "integrity" "sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ=="
   "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz"
