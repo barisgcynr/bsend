@@ -19,7 +19,7 @@ export class UploadListComponent implements OnInit {
 
   ngAfterViewInit(): void {
     if(this.auth.isLoggedIn){
-      this.uploadService.getFiles(6).snapshotChanges().pipe(
+      this.uploadService.getFiles(100).snapshotChanges().pipe(
         map(changes =>
           // store the key
           changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
