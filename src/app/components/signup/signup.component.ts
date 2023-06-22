@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/authentication.service';
 
 @Component({
@@ -9,13 +10,17 @@ import { AuthenticationService } from 'src/authentication.service';
 export class SignupComponent implements OnInit {
   @Input() wantsPro: boolean = false;
 
-  constructor(public authService: AuthenticationService) { }
+  constructor(public authService: AuthenticationService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   toggleCheckbox() {
     this.wantsPro = !this.wantsPro;
+  }
+
+  infoToastr() {
+    this.toastr.info('We sent confirmation mail.', 'Check your inbox!');
   }
 
 }

@@ -34,7 +34,8 @@
         <div class="form-group">
           <button *ngIf="!wantsPro"
             type="submit"
-            (click)="authService.SignUp(userEmail.value, userPwd.value)"
+            routerLink="/"
+            (click)="authService.SignUp(userEmail.value, userPwd.value); infoToastr();"
           >
             Sign Up
           </button>
