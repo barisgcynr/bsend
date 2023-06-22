@@ -3,6 +3,7 @@ import { FileUploadService } from '../../../file-upload.service';
 import { FileUpload } from '../../../file-upload';
 import { MailService } from 'src/mail.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-upload-details',
@@ -15,7 +16,7 @@ export class UploadDetailsComponent implements OnInit {
   to: string = '';
   subject: string = '';
 
-  constructor(private uploadService: FileUploadService, private mailSrvc: MailService, private modalService: NgbModal) { }
+  constructor(private uploadService: FileUploadService, private mailSrvc: MailService, private modalService: NgbModal, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,8 @@ export class UploadDetailsComponent implements OnInit {
     this.uploadService.deleteFile(fileUpload);
   }
   copyClickBoard(text: string) {
-    navigator.clipboard.writeText(text)
+      navigator.clipboard.writeText(text);
+      this.toastr.success('Succesfully copied to clipboard!', 'Copied!');
   }
 
   sendEmail() {
