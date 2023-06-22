@@ -102,3 +102,42 @@ button[type="button"]:hover {
   z-index: 0;
   position: absolute;
 }
+
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #167d32;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
