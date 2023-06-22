@@ -1,6 +1,7 @@
 <nav class="navbar">
     <div class="logo">
       <a routerLink="/"><img src="../../../assets/bsend_logo.png" alt="Logo"></a>
+      <b class="navbar-leftsidebut" routerLink="/">Home</b>
     </div>
     <ul *ngIf="authService.isLoggedIn === false" class="nav-links">
       <li ><a routerLink="/signin" class="signin">Sign In</a></li>

@@ -45,6 +45,7 @@
   font-weight: bold;
   color: #fff; /* Yazı rengini beyaz olarak ayarla */
   transition: background-color 0.3s ease; /* Geçiş efektini buton rengi için de ayarla */
+  border-radius: 6px;
 }
 
 .nav-links li .signin:hover {
@@ -55,6 +56,19 @@
 /* Bağlantıların üzerine gelindiğinde */
 .nav-links li a:hover {
   color: #135b26;
+}
+
+.navbar-leftsidebut{
+  background-color: #167d32;
+  padding: 8px 12px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.navbar-leftsidebut:hover {
+  background-color: #135b26;
+  color: #fff; /* Hover durumunda yazı rengini beyaz olarak koru */
 }
 
 
