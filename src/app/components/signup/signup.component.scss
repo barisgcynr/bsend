@@ -1,67 +1,104 @@
-.login-container {
-  background-color: #365064;
-  padding: 20px;
-  width: 300px;
-  margin: 0 auto;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-  transform: translate(0, -50%);
-  top: 50%;
-  position: absolute;
+body {
+  font-family: 'Quicksand', sans-serif;
 }
 
-.login-container h2 {
-  margin-top: 0;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.authBlock {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 999;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #167d32;
+  font-weight: bold;
+  font-size: 24px;
+}
+h3{
+  text-align: center;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #bdd99e; /* Label rengini değiştirmek için */
-}
-
-.form-group input {
-  width: 92%;
+.formControl {
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #f0f3f5; /* Input arka plan rengini değiştirmek için */
-  color: #333; /* Input metin rengini değiştirmek için */
+  border: 1px solid #BDD99e;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
 }
 
-button[type="submit"] {
-  background-color: #bdd99e;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 5px;
+.formControl:focus {
+  outline: none;
+  box-shadow: 0 0 5px #BDD99e;
+}
+
+button[type="submit"],
+button[type="button"] {
   width: 100%;
-}
-
-button[type="submit"]:hover {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
   background-color: #167d32;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
 }
-.svg_position {
-    position: flex;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #005c1f;
 }
-.container {
+
+.googleBtn {
   width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #BDD99e;
+  color: #001220;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.googleBtn:hover {
+  background-color: #95b78f;
+}
+
+.forgot-password,
+.sign-up {
+  color: #BDD99e;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+}
+
+.sign-up:hover, .forgot-password:hover {
+  color: #167d32;
+}
+
+
+.background-svg {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+  position: absolute;
 }
