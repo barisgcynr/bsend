@@ -19,6 +19,11 @@ const routes: Routes = [
     loadChildren: () => import('./components/user-files/user-files.module')
       .then(m => m.UserFilesModule)
   },
+  {
+    path: 'pro-sub',
+    loadChildren: () => import('./components/pro-sub/pro-sub.module')
+      .then(m => m.ProSubModule)
+  },
   
 ];
 

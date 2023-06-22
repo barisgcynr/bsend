@@ -1,10 +1,14 @@
 .background-svg {
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     z-index: 0;
     position: absolute;
+  }
+
+  .background-svg > path {
+      width: 100vw;
   }
 
   .content{

@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     UploadListComponent,
     UploadDetailsComponent,
     EllipsisPipe,
-    UserFilesComponent
+    UserFilesComponent,
   ],
   imports: [
     BrowserModule,

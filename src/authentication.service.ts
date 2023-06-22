@@ -7,6 +7,8 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +17,7 @@ export class AuthenticationService {
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
+    private db: AngularFireDatabase,
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
@@ -129,4 +132,64 @@ export class AuthenticationService {
       this.router.navigate(['signin']);
     });
   }
+
+  addSubscription() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        const uid = user.uid;
+        const expirationDate = new Date();
+        expirationDate.setMonth(expirationDate.getMonth() + 1); // 1 ay sonrasını hesapla
+
+        const subscriptionData = {
+          expirationDate: expirationDate.toString(),
+          createdAt: new Date().toString()
+          // Diğer abonelik bilgilerini ekleyebilirsiniz
+        };
+
+        this.db.object(`subscriptions/${uid}`).update(subscriptionData)
+          .then(() => {
+            console.log('Abonelik başarıyla eklendi.');
+          })
+          .catch(error => {
+            console.error('Abonelik eklenirken hata oluştu:', error);
+          });
+      }
+    });
+  }
+
+  checkSubscription(): Observable<{ subscribed: boolean, uid: string }> {
+    return new Observable<{ subscribed: boolean, uid: string }>(observer => {
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          const uid = user.uid;
+
+          this.db.object(`subscriptions/${uid}`).valueChanges().subscribe(snapshot => {
+            if (snapshot) {
+              const existingSubscription = snapshot as { expirationDate: string };
+
+              // Subscription value is valid
+              if (new Date(existingSubscription.expirationDate) > new Date()) {
+                observer.next({ subscribed: true, uid: uid });
+              } else {
+                observer.next({ subscribed: false, uid: uid });
+              }
+            } else {
+              observer.next({ subscribed: false, uid: uid });
+            }
+          });
+        } else {
+          observer.next({ subscribed: false, uid: '' });
+        }
+      });
+    });
+  }
+
+  getSubscription(uid: string): Observable<{ expirationDate: string }> {
+    return this.db.object(`subscriptions/${uid}`).valueChanges() as Observable<{ expirationDate: string }>;
+  }
+
+  removeSubscription(uid: string): Promise<void> {
+    return this.db.object(`subscriptions/${uid}`).remove();
+  }
+  
 }
