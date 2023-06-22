@@ -11,11 +11,18 @@ export class NavbarComponent implements OnInit {
    }
    public user: any;
    public email: string | any;
+   isSubscribed: boolean = false;
+   
   ngOnInit(): void {
     if(this.authService.isLoggedIn){
       this.user = JSON.parse(localStorage.getItem('user')!);
       this.email = this.user.email;
-      }
+    }
+
+      // Check if user is subscribed
+    this.authService.checkSubscription().subscribe((result) => {
+      this.isSubscribed = result.subscribed;
+    });
   }
   signOut(): void {
     this.authService.SignOut();
