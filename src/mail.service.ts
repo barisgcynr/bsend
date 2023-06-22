@@ -26,7 +26,7 @@ export class MailService {
 
     const headers = {
       'Content-Type': 'application/json',
-      'api-key': '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'
+      'api-key': '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'
     };
 
     return this.http.post(this.apiUrl, mailData, { headers });
