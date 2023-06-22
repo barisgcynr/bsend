@@ -17,6 +17,7 @@ import { UserFilesComponent } from './components/user-files/user-files.component
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     HttpClientModule,
     FormsModule,
     NgxDropzoneModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
