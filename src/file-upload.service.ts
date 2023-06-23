@@ -26,6 +26,7 @@ export class FileUploadService {
     }
   }
 
+  //Observable is a representation of a stream of data or events from a variety of sources, including but not limited to: DOM events, AJAX responses, WebSockets, and others.
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
     console.log(this.basePath);
