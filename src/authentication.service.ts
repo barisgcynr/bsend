@@ -142,7 +142,7 @@ export class AuthenticationService {
 
         const subscriptionData = {
           expirationDate: expirationDate.toString(),
-          createdAt: new Date().toString()
+          createdAt: new Date().toString(),
           // Diğer abonelik bilgilerini ekleyebilirsiniz
         };
 
